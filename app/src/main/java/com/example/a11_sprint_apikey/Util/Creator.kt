@@ -1,15 +1,15 @@
 package com.example.a11_sprint_apikey.Util
 
-import android.app.Activity
 import android.content.Context
-import com.example.a11_sprint_apikey.data.network.MoviesRepositoryImpl
+import com.example.a11_sprint_apikey.data.MoviesRepositoryImpl
 import com.example.a11_sprint_apikey.data.network.RetrofitNetworkClient
 import com.example.a11_sprint_apikey.domain.api.MoviesInteractor
 import com.example.a11_sprint_apikey.domain.api.MoviesRepository
 import com.example.a11_sprint_apikey.domain.impl.MoviesInteractorImpl
-import com.example.a11_sprint_apikey.presentation.MoviesSearchController
-import com.example.a11_sprint_apikey.presentation.PosterController
-import com.example.a11_sprint_apikey.ui.movies.MoviesAdapter
+import com.example.a11_sprint_apikey.presentation.movies.MoviesSearchPresenter
+import com.example.a11_sprint_apikey.presentation.poster.PosterPresenter
+import com.example.a11_sprint_apikey.presentation.movies.MoviesView
+import com.example.a11_sprint_apikey.presentation.poster.PosterView
 
 object Creator {
     private fun getMoviesRepository(context: Context): MoviesRepository {
@@ -20,11 +20,11 @@ object Creator {
         return MoviesInteractorImpl(getMoviesRepository(context))
     }
 
-    fun provideMoviesSearchController(activity: Activity, adapter: MoviesAdapter): MoviesSearchController {
-        return MoviesSearchController(activity, adapter)
+    fun provideMoviesSearchPresenter(context: Context): MoviesSearchPresenter {
+        return MoviesSearchPresenter(context = context)
     }
 
-    fun providePosterController(activity: Activity): PosterController {
-        return PosterController(activity)
+    fun providePosterPresenter(posterView: PosterView, imageUrl: String): PosterPresenter {
+        return PosterPresenter(posterView, imageUrl)
     }
 }
