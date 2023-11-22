@@ -1,7 +1,6 @@
-package com.example.a11_sprint_apikey.data.network
+package com.example.a11_sprint_apikey.data
 
 import com.example.a11_sprint_apikey.Util.Resource
-import com.example.a11_sprint_apikey.data.NetworkClient
 import com.example.a11_sprint_apikey.data.dto.MoviesSearchRequest
 import com.example.a11_sprint_apikey.data.dto.MoviesSearchResponse
 import com.example.a11_sprint_apikey.domain.api.MoviesRepository
